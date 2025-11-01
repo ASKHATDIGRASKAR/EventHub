@@ -1,73 +1,97 @@
-# Welcome to your Lovable project
+# Gatherly API
 
-## Project info
+A TypeScript-based backend API powering Gatherly (events/attendance/aggregation). Includes endpoints for events, attendees, and analytics plus database routines (PL/pgSQL) for efficient aggregations.
 
-**URL**: https://lovable.dev/projects/6d64f43e-2941-4d2e-af9b-365d773419de
+## Features
+- RESTful API for events and attendees
+- Aggregation endpoints (trends, counts)
+- Pagination and filtering
+- Input validation and basic auth-ready structure
+- Database functions in PL/pgSQL for performant queries
 
-## How can I edit this code?
+## Tech stack
+- TypeScript (Node.js / Express / Fastify or similar)
+- PostgreSQL (with PL/pgSQL functions)
+- ORM/Query Builder (Prisma / TypeORM / Knex) — adjust to your choice
+- Jest / Vitest for tests
 
-There are several ways of editing your application.
+## Getting started
 
-**Use Lovable**
+Prerequisites
+- Node.js >= 18
+- PostgreSQL >= 13
+- pnpm / npm / yarn
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6d64f43e-2941-4d2e-af9b-365d773419de) and start prompting.
+Install
+```bash
+npm install
+# or
+yarn install
+```
 
-Changes made via Lovable will be committed automatically to this repo.
+Environment
+Create a .env file with (example):
+- DATABASE_URL=postgresql://user:password@localhost:5432/gatherly
+- PORT=4000
+- JWT_SECRET=your_jwt_secret
 
-**Use your preferred IDE**
+Run locally
+```bash
+# run migrations (if using)
+npm run migrate
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# start dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Build & Start
+```bash
+npm run build
+npm start
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Database
+- Run SQL migrations or seed scripts provided in /prisma or /migrations
+- If PL/pgSQL functions are included, run them via psql or migration tooling
 
-**Use GitHub Codespaces**
+Example API
+- GET /api/events — list events
+- GET /api/events/:id — event details
+- POST /api/events — create event
+- GET /api/analytics/trends?start=YYYY-MM-DD&end=YYYY-MM-DD — aggregated analytics
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+(Replace endpoints above to match your actual routes.)
 
-## What technologies are used for this project?
+## Testing
+```bash
+npm test
+# or
+yarn test
+```
 
-This project is built with:
+## Linting & Formatting
+```bash
+npm run lint
+npm run format
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
+- Recommended: host on Render, Heroku, Fly, or a Docker container
+- Ensure DATABASE_URL and other env vars are set in the deployment environment
+- Use connection pooling (pgbouncer) for production PostgreSQL
 
-## How can I deploy this project?
+## Security
+- Keep JWT_SECRET and DB credentials out of source control
+- Use HTTPS in production
+- Harden CORS and rate limiting as needed
 
-Simply open [Lovable](https://lovable.dev/projects/6d64f43e-2941-4d2e-af9b-365d773419de) and click on Share -> Publish.
+## Contributing
+- Open issues for bugs or feature requests
+- Follow branch naming and commit conventions in CONTRIBUTING.md (optional)
 
-## Can I connect a custom domain to my Lovable project?
+## License
+Choose and add a LICENSE (e.g., MIT).
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Maintainers / Contact
+- GitHub: AKSHATDIGRASKAR
+- Email: akshatdigraskar58@gmail.com
