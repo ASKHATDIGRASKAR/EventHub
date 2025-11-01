@@ -1,4 +1,4 @@
-# Gatherly API
+# EventHub
 
 A TypeScript-based backend API powering Gatherly (events/attendance/aggregation). Includes endpoints for events, attendees, and analytics plus database routines (PL/pgSQL) for efficient aggregations.
 
