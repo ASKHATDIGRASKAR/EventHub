@@ -89,9 +89,7 @@ npm run format
 - Open issues for bugs or feature requests
 - Follow branch naming and commit conventions in CONTRIBUTING.md (optional)
 
-## License
-Choose and add a LICENSE (e.g., MIT).
-
+  
 ## Maintainers / Contact
 - GitHub: AKSHATDIGRASKAR
 - Email: akshatdigraskar58@gmail.com
